@@ -11,6 +11,13 @@ export default class Message extends Component {
       { id: "3", title: "message003" },
     ],
   };
+
+  push = (id, title) => {
+    this.props.history.push(`/home/message/detail/${id}/${title}`);
+  };
+  replace = (id, title) => {
+    this.props.history.replace(`/home/message/detail/${id}/${title}`);
+  };
   render() {
     const { dataList } = this.state;
     return (
@@ -23,20 +30,33 @@ export default class Message extends Component {
                 <Link to={`/home/message/detail/${item.id}/${item.title}`}>
                   {item.title}
                 </Link>
-
                 {/* 方法二：向路由组件传递search参数 */}
                 {/* <Link
                   to={`/home/message/detail?id=${item.id}&title=${item.title}`}
                 >
                   {item.title}
                 </Link> */}
-
                 {/* 方法三：向路由组件传递state参数 */}
                 {/* <Link
                   to={{pathname:"/home/message/detail",state:{id:item.id,title:item.title}}}
                 >
                   {item.title}
                 </Link> */}
+                <button
+                  onClick={() => {
+                    this.push(item.id, item.title);
+                  }}
+                >
+                  查看详情(push)
+                </button>
+                &nbsp;
+                <button
+                  onClick={() => {
+                    this.replace(item.id, item.title);
+                  }}
+                >
+                  查看详情(replace)
+                </button>
               </li>
             );
           })}

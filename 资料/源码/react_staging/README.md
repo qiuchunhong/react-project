@@ -131,6 +131,13 @@
 						(2).HashRouter刷新后会导致路由state参数的丢失！！！
 			4.备注：HashRouter可以用于解决一些路径错误相关的问题。
 
+## withRouter
+	withRouter可以加工一般组件，使一般组件具备路由组件所特有的api
+	withRouter的返回值是一个新组件
+		import {withRouter} from 'react-router-dom'
+		class Header extends Component{....}
+		export default withRouter(Header)
+
 ## 十四、antd的按需引入+自定主题
 			1.安装依赖：yarn add react-app-rewired customize-cra babel-plugin-import less less-loader
 			2.修改package.json
