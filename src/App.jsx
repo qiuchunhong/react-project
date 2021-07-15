@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 
-import { Route, Switch ,Redirect} from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 // import TodoList from "./pages/todoList/index";
 import Header from "./components/Header";
 import MyNavLink from "./components/MyNavLink";
 import About from "./pages/about";
 import Home from "./pages/home";
+import Count from "./pages/count";
 
 export default class App extends Component {
   render() {
@@ -22,6 +23,7 @@ export default class App extends Component {
             <div className="list-group">
               <MyNavLink to="/about">About</MyNavLink>
               <MyNavLink to="/home">Home</MyNavLink>
+              <MyNavLink to="/count">Count</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
@@ -29,7 +31,8 @@ export default class App extends Component {
               <Switch>
                 <Route path="/about" component={About} />
                 <Route path="/home" component={Home} />
-                <Redirect to='/about'/>
+                <Route path="/count" component={Count} />
+                <Redirect to="/about" />
               </Switch>
             </div>
           </div>
