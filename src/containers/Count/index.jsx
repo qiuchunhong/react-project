@@ -2,11 +2,7 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
-import {
-  createIncrementAction,
-  createDecrementAction,
-  createIncrementSyncAction,
-} from "../../redux/count_actions";
+import { increment, decrement, incrementSync } from "../../redux/actions/count";
 
 class Count extends Component {
   increment = () => {
@@ -32,7 +28,10 @@ class Count extends Component {
   render() {
     return (
       <div>
-        合为：{this.props.count} <br />
+        <h2>
+          合为：{this.props.count} ，下面人数为：{this.props.personCount}
+        </h2>
+        <br />
         <select ref={(c) => (this.selectVal = c)}>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -50,11 +49,11 @@ class Count extends Component {
 
 export default connect(
   // 状态
-  (state) => ({ count: state }),
+  (state) => ({ count: state.count, personCount: state.person.length }),
   // 修改状态的方法
   {
-    increment: createIncrementAction,
-    decrement: createDecrementAction,
-    incrementSync: createIncrementSyncAction,
+    increment,
+    decrement,
+    incrementSync,
   }
 )(Count);

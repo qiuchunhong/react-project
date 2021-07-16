@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import MyNavLink from "./components/MyNavLink";
 import About from "./pages/about";
 import Home from "./pages/home";
-import Count from "./pages/count";
+import CountAndPerson from "./pages/CountAndPerson";
 
 export default class App extends Component {
   render() {
@@ -23,7 +23,7 @@ export default class App extends Component {
             <div className="list-group">
               <MyNavLink to="/about">About</MyNavLink>
               <MyNavLink to="/home">Home</MyNavLink>
-              <MyNavLink to="/count">Count</MyNavLink>
+              <MyNavLink to="/countAndPerson">Count</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
@@ -31,7 +31,7 @@ export default class App extends Component {
               <Switch>
                 <Route path="/about" component={About} />
                 <Route path="/home" component={Home} />
-                <Route path="/count" component={Count} />
+                <Route path="/countAndPerson" component={CountAndPerson} />
                 <Redirect to="/about" />
               </Switch>
             </div>
